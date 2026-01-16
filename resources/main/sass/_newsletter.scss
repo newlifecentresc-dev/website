@@ -1,0 +1,53 @@
+/*---------------------
+	Newsletter Section
+-----------------------*/
+.newsletter-section {
+	padding: 35px 0;
+	background: #75dab4;
+	h4 {
+		color: #fff;
+		font-weight: 700;
+		padding-top: 8px;
+	}
+}
+.newsletter-form {
+	position: relative;
+	padding-left: 30px;
+	input {
+		// background: #b83939;
+		border: none;
+		width: 100%;
+		height: 47px;
+		padding-left: 25px;
+		border-radius: 2px;
+		padding-right: 170px;
+		color: $primary;
+	}
+	.nl-send-btn {
+		position: absolute;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background: #fff;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 14px;
+		letter-spacing: 2px;
+		color: $primary;
+		border: none;
+		padding: 0 25px;
+		border-radius: 2px;
+	}
+	&::-webkit-input-placeholder {
+		color: #fff;
+	}
+	&:-ms-input-placeholder {
+		color: #fff;
+	}
+	&::-ms-input-placeholder {
+		color: #fff;
+	}
+	&::placeholder {
+		color: #fff;
+	}
+}

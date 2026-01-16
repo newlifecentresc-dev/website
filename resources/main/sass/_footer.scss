@@ -1,0 +1,31 @@
+/*---------------------
+	Footer Section
+-----------------------*/
+.footer-section-main {
+	padding: 2em 0;
+	border-top: 3px dashed $primary;
+}
+.footer-section {
+	padding: 20px 0;
+	background: $primary;
+	color: white;
+	.social {
+		text-align: right;
+		display: block;
+		padding-top: 5px;
+		a {
+			color: #fff;
+			margin-right: 30px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+.copyright {
+	p {
+		font-size: 14px;
+		color: #fff;
+		margin-bottom: 0;
+	}
+}

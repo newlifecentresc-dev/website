@@ -1,0 +1,33 @@
+.n-btn {
+	border: 2px solid transparent;
+	padding: 14px 35px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 2px;
+	letter-spacing: 1px;
+	text-align: center;
+	min-width: 15em; 
+}
+
+.n-btn-main {
+    background-color: $white;
+    border-color: $color_mercury_approx;
+    color: $primary;
+    &:hover {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white !important;
+    }
+}
+.n-btn-trans {
+    background-color: transparent;
+    border-color: $white;
+    color: $white;
+    &:hover {
+        background-color: $white;
+        border-color: $white;
+        color: $primary;
+    }
+}
