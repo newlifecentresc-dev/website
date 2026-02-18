@@ -1,4 +1,4 @@
-Good evening! 🙏
+Good {{ $day }}! 🙏
 
 Join us for our online service this {{ $day }}!
 
