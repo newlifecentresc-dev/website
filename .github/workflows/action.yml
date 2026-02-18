@@ -21,23 +21,14 @@ jobs:
       - name: Copy .env
         run: cp .env.production .env
 
+      - name: Install Dependencies
+        run: composer install
+
       - name: Generate Key
         run: php artisan key:generate
 
-      - name: Install Dependencies
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: ":memory:"
-        run: composer install
-
       - name: Run Migrations
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: ":memory:"
         run: php artisan migrate --force
 
       - name: Run Tests
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: ":memory:"
         run: php artisan test
