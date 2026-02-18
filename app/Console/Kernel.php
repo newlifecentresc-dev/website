@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Schedules\SendPrayerReminderSchedule;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -16,6 +17,11 @@ class Kernel extends ConsoleKernel
         //
     ];
 
+    protected function scheduleTimezone()
+    {
+        return 'GMT';
+    }
+
     /**
      * Define the application's command schedule.
      *
@@ -25,6 +31,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        SendPrayerReminderSchedule::register($schedule);
     }
 
     /**

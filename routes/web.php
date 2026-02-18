@@ -1,32 +1,33 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Administrator\BannerController;
+use App\Http\Controllers\Administrator\EventController as AdministratorEventController;
+use App\Http\Controllers\Administrator\HomeController as AdministratorHomeController;
+use App\Http\Controllers\Administrator\MenuController;
+use App\Http\Controllers\Administrator\NewsletterController;
+use App\Http\Controllers\Administrator\PageController;
+use App\Http\Controllers\Administrator\ServiceController;
+use App\Http\Controllers\Administrator\SettingsController;
+use App\Http\Controllers\Administrator\UserController;
+use App\Http\Controllers\ArtisanController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\GivingController;
+use App\Http\Controllers\HolySpiritExperienceController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController as ControllersPageController;
+use App\Http\Controllers\PageController as IndexController;
+use App\Http\Controllers\SermonController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\WhatsappController;
+use App\Http\Services\Navigation;
 use App\Models\Menu;
 use App\Models\Page;
-use App\Http\Services\Navigation;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\GivingController;
-use App\Http\Controllers\SermonController;
-use App\Http\Controllers\SitemapController;
-use App\Http\Controllers\Administrator\MenuController;
-use App\Http\Controllers\Administrator\PageController;
-use App\Http\Controllers\Administrator\UserController;
-use App\Http\Controllers\Administrator\BannerController;
-use App\Http\Controllers\HolySpiritExperienceController;
-use App\Http\Controllers\Administrator\ServiceController;
-use App\Http\Controllers\Administrator\SettingsController;
-use App\Http\Controllers\PageController as IndexController;
-use App\Http\Controllers\Administrator\NewsletterController;
-use App\Http\Controllers\Administrator\HomeController as AdministratorHomeController;
-use App\Http\Controllers\Administrator\EventController as AdministratorEventController;
-use App\Http\Controllers\ArtisanController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PageController as ControllersPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,9 +74,6 @@ Route::get('sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/admin', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-
-require __DIR__ . '/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     foreach (Navigation::getAdminNavigation() as $navigation) {
@@ -150,7 +148,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', 'preventBackHist
     Route::delete('newsletter/{id}', [NewsletterController::class, 'newsletter_destroy'])->name('newsletters.destroy');
 });
 
-
 if (Schema::hasTable('pages')) {
     $pages = Page::where('status', 'active')->get();
 
@@ -173,3 +170,6 @@ if (Schema::hasTable('pages')) {
         // }
     }
 }
+
+
+// require __DIR__ . '/auth.php';

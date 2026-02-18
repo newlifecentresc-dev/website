@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WhatsappController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('/newsletter', [HomeController::class, 'newsletter']);
+
+// routes/api.php
+Route::post('/whatsapp/send', [WhatsappController::class, 'sendMessage']);
