@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9hZG1pbmlzdHJhdG9yL2pzL2FwcC5qcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/administrator/js/app.js\n");
+eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9hZG1pbmlzdHJhdG9yL2pzL2FwcC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/administrator/js/app.js\n");
 
 /***/ }),
 
@@ -126,9 +126,9 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Repository\newliferepo\resources\administrator\js\app.js */"./resources/administrator/js/app.js");
-__webpack_require__(/*! F:\Repository\newliferepo\resources\administrator\sass\style.scss */"./resources/administrator/sass/style.scss");
-module.exports = __webpack_require__(/*! F:\Repository\newliferepo\resources\main\sass\style.scss */"./resources/main/sass/style.scss");
+__webpack_require__(/*! /home/smithywonda/projects/newlife/website/resources/administrator/js/app.js */"./resources/administrator/js/app.js");
+__webpack_require__(/*! /home/smithywonda/projects/newlife/website/resources/administrator/sass/style.scss */"./resources/administrator/sass/style.scss");
+module.exports = __webpack_require__(/*! /home/smithywonda/projects/newlife/website/resources/main/sass/style.scss */"./resources/main/sass/style.scss");
 
 
 /***/ })
