@@ -4185,40 +4185,70 @@ $(window).on('load', function () {
   });
 })(jQuery);
 
+// (function () {
+//   // const endDate = "Jan 3, 2021 22:00:00";
+//   var date = document.getElementById("event-countdown_date").value; // const date = "Jan 3, 2021 12:00:00";
+//   // const date = "Dec 18, 2020 20:00:00";
+
+//   var red = new Date(date).getTime();
+//   var second = 1000,
+//       minute = second * 60,
+//       hour = minute * 60,
+//       day = hour * 24;
+//   var birthday = date,
+//       countDown = new Date(birthday).getTime(),
+//       x = setInterval(function () {
+//     var now = new Date().getTime(),
+//         distance = countDown - now;
+
+//     if (distance > 0) {
+//       document.getElementById("days").innerText = Math.floor(distance / day), document.getElementById("hours").innerText = Math.floor(distance % day / hour), document.getElementById("minutes").innerText = Math.floor(distance % hour / minute), document.getElementById("seconds").innerText = Math.floor(distance % minute / second);
+//     } //do something later when date is reached
+
+
+//     if (distance < 0) {
+//       // $('#counter-box').hide();
+//       // $('#counter-message').show();
+//       // $('countdown-event').show();
+//       // $('.counter').hide();
+//       // $('.content-news').show();
+//       clearInterval(x);
+//     } //seconds
+
+//   }, 0);
+// })();
+
+// /***/ }),
+
 (function () {
-  // const endDate = "Jan 3, 2021 22:00:00";
-  var date = document.getElementById("event-countdown_date").value; // const date = "Jan 3, 2021 12:00:00";
-  // const date = "Dec 18, 2020 20:00:00";
+    var countDownDate = parseInt(document.getElementById("event-countdown_timestamp").value);
 
-  var red = new Date(date).getTime();
-  var second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
-  var birthday = date,
-      countDown = new Date(birthday).getTime(),
-      x = setInterval(function () {
-    var now = new Date().getTime(),
-        distance = countDown - now;
+    function pad(n) {
+        return n < 10 ? '0' + n : String(n);
+    }
 
-    if (distance > 0) {
-      document.getElementById("days").innerText = Math.floor(distance / day), document.getElementById("hours").innerText = Math.floor(distance % day / hour), document.getElementById("minutes").innerText = Math.floor(distance % hour / minute), document.getElementById("seconds").innerText = Math.floor(distance % minute / second);
-    } //do something later when date is reached
+    function tick() {
+        var now  = Date.now();
+        var diff = Math.max(0, Math.floor((countDownDate - now) / 1000));
 
+        var hours   = Math.floor(diff / 3600);
+        var minutes = Math.floor((diff % 3600) / 60);
+        var seconds = diff % 60;
 
-    if (distance < 0) {
-      // $('#counter-box').hide();
-      // $('#counter-message').show();
-      // $('countdown-event').show();
-      // $('.counter').hide();
-      // $('.content-news').show();
-      clearInterval(x);
-    } //seconds
+        document.getElementById('cd-hours').textContent   = pad(hours);
+        document.getElementById('cd-minutes').textContent = pad(minutes);
+        document.getElementById('cd-seconds').textContent = pad(seconds);
 
-  }, 0);
+        if (diff > 0) setTimeout(tick, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', tick);
+    } else {
+        tick();
+    }
 })();
 
-/***/ }),
 
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
