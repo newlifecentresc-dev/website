@@ -1,15 +1,16 @@
-<input id="event-countdown_date" type="hidden" class="form-check-input"
-    value="{{ date('M j, Y H:i:s', strtotime($event['date_start'] ?? '')) }}">
 @php
-    $now = date('Y-m-d H:i:s');
-    $currentDate = date('Y-m-d H:i:s', strtotime($event['date_start'] ?? ''));
-    $futureDate = date('Y-m-d H:i:s', strtotime($currentDate) + 7200) ?? '';
+    use Carbon\Carbon;
+
     $eventName = $event['name'] ?? 'Event Name';
-    $eventUrl  = route('event.show', ['slug' => $event['slug']])  ?? '#';
-    $eventTimestamp = isset($eventDate)
-        ? (\Carbon\Carbon::parse($eventDate)->timestamp * 1000)
-        : (now()->addHours(1)->timestamp * 1000);
+    $eventUrl  = route('event.show', ['slug' => $event['slug']]) ?? '#';
+
+    // Parse the event date and convert to UK timezone
+    $eventDate = Carbon::parse($event['date_start'], 'Europe/London');
+    $eventTimestamp = $eventDate->timestamp * 1000;
+
 @endphp
+
+<input id="event-countdown_timestamp" type="hidden" value="{{ $eventTimestamp }}">
 
 <div class="event-countdown-banner" id="eventCountdownBanner">
     <div class="banner-inner">
@@ -18,11 +19,16 @@
         <span class="event-name">{{ $eventName }}</span>
         <span class="separator">–</span>
         <span class="countdown" id="countdownDisplay">
-            <span class="time-segment" id="cd-hours">00</span><span class="colon">:</span><span class="time-segment" id="cd-minutes">00</span><span class="colon">:</span><span class="time-segment" id="cd-seconds">00</span>
+            <span class="time-segment" id="cd-hours">00</span><span class="colon">:</span>
+            <span class="time-segment" id="cd-minutes">00</span><span class="colon">:</span>
+            <span class="time-segment" id="cd-seconds">00</span>
         </span>
         <a href="{{ $eventUrl }}" class="read-more-btn">View Event</a>
     </div>
 </div>
+
+
+
 
 <style>
     .event-countdown-banner {
